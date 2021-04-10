@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="content">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">First name</th>
+            <th scope="col">Last name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Country</th>
+            <th scope="col">Change</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in person %}
+        <tr>
+            <td>{{ i.first_name }}</td>
+            <td>{{ i.last_name }}</td>
+            <td>{{ i.age }}</td>
+            <td>{{ i.country }}</td>
+            <td><a href="{% url 'update' i.pk %}">Update</a> | <a href="{% url 'delete' i.pk %}">Delete</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="form-create">
+    <h1>Create</h1>
+    <form action="{% url 'create' %}" method="post">
+        {% csrf_token %}
+
+        {{ form.non_field.errors }}
+        <div class="mb-3">
+            <label for="{{ form.first_name.id_for_label }}" class="form-label"></label>
+            {{ form.first_name }}
+        </div>
+        <div class="mb-3">
+            <label for="{{ form.last_name.id_for_label }}" class="form-label"></label>
+            {{ form.last_name }}
+        </div>
+        <div class="mb-3">
+            <label for="{{ form.age.id_for_label }}" class="form-label"></label>
+            {{ form.age }}
+        </div>
+        <div class="mb-3">
+            <label for="{{ form.country.id_for_label }}" class="form-label"></label>
+            {{ form.country }}
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Add</button>
+
+    </form>
+</div>
+
+{% endblock %}
